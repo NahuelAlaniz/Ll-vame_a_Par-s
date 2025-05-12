@@ -1,0 +1,59 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist/app/browser"
+            }
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/polyfills-FFHMD2TL.js",
+            "destination": "/browser/polyfills-FFHMD2TL.js"
+        },
+        {
+            "source": "/scripts-EEEIPNC3.js",
+            "destination": "/browser/scripts-EEEIPNC3.js"
+        },
+        {
+            "source": "/main-7SIEWR2V.js",
+            "destination": "/browser/main-7SIEWR2V.js"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/polyfills-FFHMD2TL.js",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/javascript"
+                }
+            ]
+        },
+        {
+            "source": "/scripts-EEEIPNC3.js",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/javascript"
+                }
+            ]
+        },
+        {
+            "source": "/main-7SIEWR2V.js",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/javascript"
+                }
+            ]
+        }
+    ]
+}

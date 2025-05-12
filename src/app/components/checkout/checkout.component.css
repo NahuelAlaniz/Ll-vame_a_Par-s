@@ -1,0 +1,132 @@
+.checkout-background{
+    background-color: #ffebcd;
+}
+
+/* Contenedor principal del formulario */
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffebcd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    /* Esto permitirá que el contenedor sea desplazable si el contenido es demasiado grande */
+    max-height: 80vh;
+    /* Limita la altura máxima para evitar que ocupe toda la pantalla */
+}
+
+/* Asegura que el body sea desplazable */
+body {
+    overflow: auto;
+    /* Asegura que el cuerpo de la página permita desplazamiento */
+    height: 100%;
+
+
+}
+
+/* Para garantizar que el html también sea desplazable */
+html {
+    height: 100%;
+    overflow: auto;
+    /* Habilita el desplazamiento global */
+    
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los campos del formulario */
+.checkout-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-container input,
+.checkout-container select {
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ffebcd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.checkout-container input:focus,
+.checkout-container select:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+/* Botón de envío */
+.checkout-button {
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #f1c37f;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para los productos en el carrito */
+.cart-products {
+    margin-top: 20px;
+    border-top: 2px solid #ddd;
+    padding-top: 15px;
+    overflow-y: auto;
+    /* Esto permite desplazarse dentro de los productos si es necesario */
+    max-height: 250px;
+    /* Limita la altura de la sección de productos */
+}
+
+.cart-product {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-product span {
+    font-size: 1rem;
+    color: #555;
+}
+
+.cart-product .quantity {
+    font-weight: bold;
+}
+
+/* Estilo para el total */
+.cart-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #ddd;
+}
+
+.product-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.cart-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

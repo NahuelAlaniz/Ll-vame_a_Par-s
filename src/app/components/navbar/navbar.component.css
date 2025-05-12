@@ -1,0 +1,79 @@
+/* NAVBAR GENERAL */
+.navbar {
+    background-color: #FFEBCD;
+    box-shadow: 0 2px 5px #FFEBCD;
+    padding: 0.75rem 1rem;
+}
+
+/* BOTONES DENTRO DE LA NAVBAR */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar .btn {
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    border-radius: 0.3rem;
+}
+
+/* HOVER EN LOS BOTONES */
+.navbar .btn:hover {
+    background-color: #FFEBCD;
+    color: #fff;
+}
+
+/* TOGGLER VISUAL */
+.navbar-toggler {
+    border-color: #FFEBCD;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-toggler:hover {
+    background-color: #FFEBCD;
+}
+
+/* ESPACIADO EN DISPOSITIVOS PEQUEÑOS */
+@media (max-width: 576px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navbar .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .navbar .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* MODO OSCURO AUTOMÁTICO */
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background-color: #FFEBCD !important;
+    }
+
+    .navbar .btn {
+        color: #000000;
+        border-color: #fff;
+    }
+
+    .navbar .btn:hover {
+        background-color: #fff;
+        color: #2c2c2c;
+    }
+
+    .navbar-toggler {
+        border-color: #fff;
+    }
+
+    .navbar-toggler:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}

@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+        <div action="">
+            <img src="llevame_a_paris.png" class="logo" alt="">
+            <h1 class="mb-4 mt-3">Registrarme</h1>
+            <div class="row g-1">
+                <div class="form-floating mb-2 col">
+                    <input type="text" class="form-control" [(ngModel)]="name" id="floatingName"
+                        placeholder="name@example.com">
+                    <label for="floatingName">Nombre</label>
+                </div>
+                <div class="form-floating mb-2 col">
+                    <input type="text" class="form-control" [(ngModel)]="lastname" id="floatingLastname"
+                        placeholder="name@example.com">
+                    <label for="floatingLastname">Apellido</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" [(ngModel)]="credential" id="floatingCredencial"
+                        placeholder="name@example.com">
+                    <label for="floatingCredencial">Credencial</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="email" class="form-control" [(ngModel)]="email" id="floatingInput"
+                        placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-2 col">
+                    <input type="password" class="form-control" [(ngModel)]="password" id="floatingPassword"
+                        placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="form-floating mb-2 col">
+                    <input type="password" class="form-control" [(ngModel)]="repeatPassword" id="floatingrepeatPassword"
+                        placeholder="Password">
+                    <label for="floatingrepeatPassword">Repeat Password</label>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" (click)="addUser()" type="button">Enviar Datos</button>
+                </div>
+                <div>
+                    <p class="mp-3">Ya tengo cuenta <a routerLink="/logIn">Iniciar Sesión</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

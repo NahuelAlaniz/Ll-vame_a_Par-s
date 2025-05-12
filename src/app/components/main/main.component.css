@@ -1,0 +1,114 @@
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  /* sobre tooltips/modales */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carrito-tab {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #FFEBCD;
+  color: white;
+  padding: 10px 12px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  z-index: 9999;
+  /* Muy alto para que esté siempre por encima */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Offcanvas general */
+.offcanvas {
+  background-color: #FFEBCD;
+  color: #333;
+}
+
+/* Título del carrito */
+.offcanvas-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Botón de cerrar */
+.btn-close {
+  filter: brightness(0.5);
+}
+
+/* Producto seleccionado (previsualización arriba) */
+.offcanvas-body .text-center img {
+  border: 2px solid #ddd;
+  padding: 4px;
+  background-color: white;
+}
+
+.offcanvas-body p {
+  margin-bottom: 0.25rem;
+}
+
+/* Estilos para cada ítem en el carrito */
+.offcanvas-body .d-flex {
+  background-color: #FFEBCD;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.offcanvas-body .d-flex:hover {
+  transform: scale(1.01);
+}
+
+/* Botones de cantidad */
+.offcanvas-body button {
+  background-color: #f1c37f;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.offcanvas-body button:hover {
+  background-color: #f1c37f;
+}
+
+/* Botón eliminar */
+.btn-danger.btn-sm {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+}
+
+/* Total */
+.offcanvas-body hr {
+  margin: 20px 0;
+}
+
+.offcanvas-body .fw-bold {
+  font-size: 1.2rem;
+}
+
+/* Botón de Finalizar compra */
+.btn-success {
+  background-color: #2c6e49;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #24573b;
+}

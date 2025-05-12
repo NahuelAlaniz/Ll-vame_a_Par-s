@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<!--Carrusel de Bootstrap.-->
+<section class="carousel-section">
+  <div id="carouselExample" class="carousel slide mx-auto rounded-4 overflow-hidden">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a routerLink="app-mujeres">
+          <img src="llevame_a_paris.png" class="d-block w-100 carousel-img" alt="portada1" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="checkout-background" >
+  <div class="checkout-container">
+    <h2>Formulario de Checkout</h2>
+  
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <input formControlName="nombre" type="text" placeholder="Nombre completo" />
+      <input formControlName="email" type="email" placeholder="Correo electrónico" />
+      <input formControlName="direccion" type="text" placeholder="Dirección de envío" />
+      <input formControlName="ciudad" type="text" placeholder="Ciudad" />
+      <input formControlName="codigoPostal" type="text" placeholder="Código Postal" />
+  
+      <div class="cart-products">
+        <div *ngFor="let item of cartItems" class="cart-product">
+          <img [src]="item.image" alt="{{item.name}}" class="product-image" />
+          <div>
+            <span>{{item.name}} {{item.description}} ({{item.size}})</span>
+            <span class="quantity">{{getCantidad(item.id)}} x ${{item.price}}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cart-total">
+        <span>Total: ${{total}}</span>
+      </div>
+  
+      <button type="submit" class="checkout-button">Finalizar compra</button>
+    </form>
+  </div>
+</section>
+<app-footer></app-footer>

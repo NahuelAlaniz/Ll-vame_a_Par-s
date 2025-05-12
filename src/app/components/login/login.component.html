@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+        <img src="llevame_a_paris.png" class="logo" alt="">
+        <h1 class="mb-4 mt-3">Inicio de sesión</h1>
+        <div class="form-floating mb-2">
+            <input type="email" class="form-control" [(ngModel)]="email" id="floatingInput"
+                placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-2 col">
+            <input type="password" class="form-control" [(ngModel)]="password" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" (click)="login()">Button</button>
+        </div>
+        <div>
+            <p class="mp-3">¿No tengo cuenta? <a routerLink="/signIn">Registrarme</a></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<!--Agregamos Whatsspp-->
+<a href="https://wa.me/2994273573" class="btn btn-success btn-lg rounded-circle whatsapp-float" target="_blank"
+  title="Escribinos por WhatsApp">
+  <i class="bi bi-whatsapp fs-3"></i>
+</a>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<section style="background-color:#FFEBCD; padding: 20px;">
+  <div id="carouselExample" class="carousel slide mx-auto rounded-4"
+    style="max-width: 90%; max-height: 500px; overflow: hidden;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="llevame_a_paris.png" class="d-block w-100" alt="portada1"
+          style="height: 300px; object-fit: cover; border-radius: 20px;" routerLink="app-mujeres" />
+      </div>
+    </div>
+  </div>
+</section>
+<!--Sección mujer,hombre,niño-->
+<section style="background-color:#FFEBCD;">
+  <div class="container text-center">
+    <div class="row g-3">
+      <!--Ropamujeres-->
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <a href="http://localhost:4200/conjuntos_bralettes_bodys" routerLink="/conjuntos_bralettes_bodys">
+          <img src="conjuntos_bralettes_bodys.png" class="img-fluid rounded-4" style="border-radius: 20px;" />
+        </a>
+      </div>
+      <!--Pijamas y camisolines-->
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <a href="http://localhost:4200/pijamas_camisolines" routerLink="/pijamas_camisolines">
+          <img src="pijamas_camisolines.png" class="img-fluid rounded-4" style="border-radius: 20px;" />
+        </a>
+      </div>
+      <!--Boxers-->
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <a href="http://localhost:4200/boxers" routerLink="/boxers">
+          <img src="boxers.png" class="img-fluid rounded-4" style="border-radius: 20px;" />
+        </a>
+      </div>
+      <!--Ruanas-->
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <a href="http://localhost:4200/ruanas" routerLink="/ruanas">
+          <img src="ruanas_sacos_sweaters.png" class="img-fluid rounded-4" style="border-radius: 20px;" />
+        </a>
+      </div>
+      <!--Vestidos-->
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <a href="http://localhost:4200/vestidos" routerLink="/vestidos">
+          <img src="vestidos.png" class="img-fluid rounded-4" style="border-radius: 20px;" />
+        </a>
+      </div>
+      <!--Remeras-->
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <a href="http://localhost:4200/remeras" routerLink="/remeras">
+          <img src="remeras.png" class="img-fluid rounded-4" style="border-radius: 20px;" />
+        </a>
+      </div>
+      <!--
+      <div class="col-12 col-sm-6 col-md-4">
+        <a href="http://localhost:4200/pantalones" routerLink="/pantalones">
+          <img src="pantalones.png" class="img-fluid rounded-4" style="border-radius: 20px;" />
+        </a>
+      </div>
+      -->
+    </div>
+  </div>
+</section>
+<!--Sección metodos de pago-->
+<section class="payment-methods" style="background-color: #FFEBCD; padding:20px">
+  <div class="methods d-flex justify-content-center align-items-center" style="height: fit-content;">
+    <div class="method">
+      <img src="medios_de_pago.png" alt="medios_de_pago" class="img-fluid img-fluid rounded-4" />
+    </div>
+  </div>
+</section>
+<!-- Botón para abrir el carrito -->
+<div class="carrito-tab" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+  🛒
+</div>
+<!-- Carrito Offcanvas -->
+<section>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de Compras</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div *ngIf="cartService.getCarrito().length === 0">
+        <p>No hay productos en el carrito.</p>
+      </div>
+
+      <div *ngFor="let producto of cartService.getCarrito()" class="mb-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <img [src]="producto.image" alt="{{ producto.name }}"
+            style="height: 60px; width: 60px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
+          <div>
+            <p class="mb-0"><strong>{{ producto.name }}</strong></p>
+            <p class="mb-0"><strong>Talle:</strong> {{ producto.size }}</p>
+            <p class="mb-0"><strong>Precio: </strong>${{ producto.price }}</p>
+            <p><strong>Descripción:</strong> {{ producto.description }}</p>
+            <div class="d-flex align-items-center gap-2">
+              <button (click)="cartService.decrementarCantidad(producto.id)"
+                class="btn btn-sm btn-outline-secondary">-</button>
+              <span>{{ cartService.getCantidad(producto.id) }}</span>
+              <button (click)="cartService.incrementarCantidad(producto.id)" [disabled]="producto.stock === 0"
+                class="btn btn-sm btn-outline-primary">+</button>
+            </div>
+            <!-- Mensaje si no hay stock -->
+            <p *ngIf="producto.stock === 0" class="text-danger small mb-0">¡Sin stock disponible!</p>
+          </div>
+          <button class="btn btn-danger btn-sm" (click)="eliminarDelCarrito(producto.id)">Eliminar</button>
+        </div>
+      </div>
+      <hr>
+      <p class="fw-bold">Total: ${{ cartService.getTotal() }}</p>
+      <button class="btn btn-success w-100" [routerLink]="'/checkout'">Finalizar compra</button>
+    </div>
+  </div>
+</section>
+
+
+
+<app-footer></app-footer>

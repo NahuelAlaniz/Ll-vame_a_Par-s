@@ -1,0 +1,78 @@
+/* Estilos generales */
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #dbeafe, #FFEBCD);
+    padding: 1rem;
+}
+
+/* Contenedor del formulario */
+.body {
+    background-color: #FFEBCD;
+    padding: 2rem 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Título */
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+}
+
+.form-floating label {
+    padding-left: 0.75rem;
+    color: #000000;
+    /* Gris suave */
+}
+
+
+/* Botón */
+.btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+/* Texto inferior */
+p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

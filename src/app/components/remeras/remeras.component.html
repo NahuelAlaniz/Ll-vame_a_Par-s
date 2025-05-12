@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+<!--Carrusel de Bootstrap.-->
+<section class="carousel-section">
+  <div id="carouselExample" class="carousel slide mx-auto rounded-4 overflow-hidden">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a routerLink="app-mujeres">
+          <img src="llevame_a_paris.png" class="d-block w-100 carousel-img" alt="portada1" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filtro por categoría -->
+<section class="filter-section">
+  <div class="d-flex flex-wrap justify-content-center gap-2 my-2">
+    <button type="button" class="btn btn-dark" (click)="filterByCategory('remera')">
+      Remera
+    </button>
+    <!--
+    <button type="button" class="btn btn-dark" (click)="filterByCategory('camisa')">
+      Camisa
+    </button>
+    -->
+
+    <button type="button" class="btn btn-dark" (click)="showAll()">
+      Todos
+    </button>
+  </div>
+</section>
+
+<!-- Filtro por talle -->
+<section class="filter-section">
+  <div class="d-flex flex-wrap justify-content-center gap-2 my-2">
+    <button type="button" class="btn btn-dark" (click)="filterBySize('M')">M</button>
+    <button type="button" class="btn btn-dark" (click)="filterBySize('L')">L</button>
+  </div>
+</section>
+
+
+<section class="product-section">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let item of listProducts">
+        <div class="card h-100">
+          <img [src]="item.image" alt="{{item.name}}" class="carrito-img" />
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p><strong>Talle:</strong> {{ item.size }}</p>
+            <p><strong>Descripción:</strong> {{ item.description }}</p>
+            <p><strong>Precio:</strong> ${{ item.price }}</p>
+            <button class="btn btn-primary" *ngIf="item" [disabled]="item.stock <= 0"
+              (click)="agregarAlCarritoffcanvas(item)" type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="listProducts.length === 0" class="alert alert-light text-dark w-100 mt-3">
+        No hay productos que coincidan con los filtros seleccionados.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="carrito-tab" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+  🛒
+</div>
+
+<section>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de Compras</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div *ngIf="getCarrito().length === 0">
+        <p>No hay productos en el carrito.</p>
+      </div>
+      <div *ngFor="let producto of getCarrito()" class="mb-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <img [src]="producto.image" alt="{{ producto.name }}"
+            style="height: 60px; width: 60px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
+          <div>
+            <p class="mb-0"><strong>{{ producto.name }}</strong></p>
+            <p class="mb-0"><strong>Talle:</strong> {{ producto.size }}</p>
+            <p class="mb-0"><strong>Precio: </strong>${{ producto.price }}</p>
+            <p><strong>Descripción:</strong> {{ producto.description }}</p>
+            <div class="d-flex align-items-center gap-2">
+              <button (click)="cartService.decrementarCantidad(producto.id)"
+                class="btn btn-sm btn-outline-secondary">-</button>
+              <span>{{ getCantidad(producto.id) }}</span>
+              <button (click)="cartService.incrementarCantidad(producto.id)" [disabled]="producto.stock === 0"
+                class="btn btn-sm btn-outline-primary">+</button>
+            </div>
+
+            <p *ngIf="producto.stock === 0" class="text-danger small mb-0">¡Sin stock disponible!</p>
+          </div>
+          <button class="btn btn-danger btn-sm" (click)="cartService.eliminarDelCarrito(producto.id)">Eliminar</button>
+        </div>
+      </div>
+      <hr>
+      <p class="fw-bold">Total: ${{ getTotal() }}</p>
+      <button class="btn btn-success w-100" [routerLink]="'/checkout'">Finalizar compra</button>
+    </div>
+  </div>
+</section>
+
+
+<app-footer></app-footer>
