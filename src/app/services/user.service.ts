@@ -9,11 +9,15 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private AppUrl: string = 'https://tu-backend-host/api/';
-  private APIUrl: string;
+  // private AppUrl: string = 'https://tu-backend-host/api/';
+  private AppUrl: string = environment.TSEURL;
+  //private APIUrl: string;
+  private APIUrl: string = 'api/user';
+
+
   constructor(private http: HttpClient) {
-    this.AppUrl = environment.TSEURL
-    this.APIUrl = 'api/user'
+    // this.AppUrl = environment.TSEURL
+    //this.APIUrl = 'api/user'
   }
 
   signIn(user: User): Observable<any> {
